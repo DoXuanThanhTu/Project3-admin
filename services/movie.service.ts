@@ -1,15 +1,7 @@
 import axios from "axios";
 import { IMovie, MovieCreateDTO, MovieUpdateDTO } from "@/types/movie.type";
+import api from "@/lib/api";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
-const api = axios.create({
-  baseURL: API_URL,
-  withCredentials: true,
-  headers: {
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTU2NzFjZjlkMTVhMTdhMWJlNzE1ODIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3Njc1OTkyMDMsImV4cCI6MTc2NzY4NTYwM30.LMTSj9BKt8kZ4lfZonUulnBk5oYcaLjgUSse7SKfkZM",
-  },
-});
 const movieService = {
   // Lấy danh sách movies
   async getMovies(params?: {
@@ -48,17 +40,17 @@ const movieService = {
   },
 
   // Upload hình ảnh
-  async uploadImage(file: File) {
-    const formData = new FormData();
-    formData.append("image", file);
+  // async uploadImage(file: File) {
+  //   const formData = new FormData();
+  //   formData.append("image", file);
 
-    const response = await axios.post(`${API_URL}/upload`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-    return response.data;
-  },
+  //   const response = await axios.post(`${API_URL}/upload`, formData, {
+  //     headers: {
+  //       "Content-Type": "multipart/form-data",
+  //     },
+  //   });
+  //   return response.data;
+  // },
   async getGenres() {
     const response = await api.get(`/genre/admin/all`);
     return response.data;
