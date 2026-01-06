@@ -27,6 +27,7 @@ export default function Navbar() {
                 { href: "/genres", label: "Thể loại" },
                 { href: "/episodes", label: "Tập phim" },
                 { href: "/users", label: "Người dùng" },
+                { href: "/servers", label: "Servers" },
               ].map((link) => (
                 <Link
                   key={link.href}
