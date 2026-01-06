@@ -806,53 +806,6 @@ const MovieForm: React.FC<MovieFormProps> = ({ movie, onSubmit, onCancel }) => {
           </div>
 
           {/* Diễn viên */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Diễn viên
-            </label>
-            <Controller
-              name="cast"
-              control={control}
-              render={({ field }) => (
-                <select
-                  multiple
-                  {...field}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  {castOptions.map((person) => (
-                    <option key={person.id} value={person.id}>
-                      {person.name}
-                    </option>
-                  ))}
-                </select>
-              )}
-            />
-            <p className="text-sm text-gray-500 mt-1">Giữ Ctrl để chọn nhiều</p>
-          </div>
-
-          {/* Đạo diễn */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Đạo diễn
-            </label>
-            <Controller
-              name="director"
-              control={control}
-              render={({ field }) => (
-                <select
-                  {...field}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="">Không có</option>
-                  {directorOptions.map((person) => (
-                    <option key={person.id} value={person.id}>
-                      {person.name}
-                    </option>
-                  ))}
-                </select>
-              )}
-            />
-          </div>
         </div>
       </div>
 
